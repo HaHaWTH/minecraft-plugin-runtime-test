@@ -14,7 +14,7 @@ inputs:
     required: true
     default: '17'
   floodgate:
-    required: false
+    required: true
     default: false
 
 runs:
@@ -49,4 +49,5 @@ runs:
       shell: bash
       env: 
         SERVER_VERSION: ${{ inputs.server-version }} 
+        FLOODGATE: ${{ inputs.floodgate }}
       run: npm start
