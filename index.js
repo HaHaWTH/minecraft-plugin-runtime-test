@@ -85,7 +85,7 @@ function downloadJar(url, dir, jarFile){
 function runServer(jarFile){
     console.log("Jar file execution in progress!")
     const floodgate = process.env.FLOODGATE
-    if(!floodgate){
+    if(floodgate==false){
         fs.unlink('server/plugins/floodgate.jar', (err) => {
           if (err) {
             console.error('Failed to unlink floodgate', err);
