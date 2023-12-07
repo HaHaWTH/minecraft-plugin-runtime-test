@@ -84,6 +84,16 @@ function downloadJar(url, dir, jarFile){
 
 function runServer(jarFile){
     console.log("Jar file execution in progress!")
+    const floodgate = ${floodgate}
+    if(!floodgate){
+        fs.unlink('server/plugins/floodgate.jar', (err) => {
+          if (err) {
+            console.error('Failed to unlink floodgate', err);
+          } else {
+            console.log('Floodgate is disabled!');
+          }
+        });
+    }
 
     const child = childproc.spawn("java", ['-jar', `${jarFile}`, 'nogui'], { cwd:"server/" })
     
