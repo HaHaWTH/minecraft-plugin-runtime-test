@@ -13,9 +13,6 @@ inputs:
   java-version:
     required: true
     default: '17'
-  floodgate:
-    required: true
-    default: false
 
 runs:
   using: 'composite'
@@ -49,5 +46,4 @@ runs:
       shell: bash
       env: 
         SERVER_VERSION: ${{ inputs.server-version }} 
-        FLOODGATE: ${{ inputs.floodgate }}
       run: npm start
