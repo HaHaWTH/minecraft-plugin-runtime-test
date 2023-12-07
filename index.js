@@ -19,14 +19,8 @@ async function main(){
         const serverJarFileName = `${serverName}-${serverVersion}-${serverBuild}.jar`
         const serverJarUrl = `https://api.papermc.io/v2/projects/paper/versions/${serverVersion}/builds/${serverBuild}/downloads/${serverJarFileName}`
 
-        const slimefunJarUrl = 'https://thebusybiscuit.github.io/builds/TheBusyBiscuit/Slimefun4/master/Slimefun4-1081.jar'
 
         await fsPromise.writeFile('server/eula.txt', "eula=true").catch((err) => console.log("error writing contents to eula.txt: " + err))
-
-        await downloadJar(serverJarUrl, 'server/', serverJarFileName)
-
-        await downloadJar(slimefunJarUrl, 'server/plugins/' , 'Slimefun4-1081.jar')
-
         runServer(serverJarFileName)
     } catch (error) {
         console.log(error)
@@ -91,7 +85,7 @@ function downloadJar(url, dir, jarFile){
 function runServer(jarFile){
     console.log("Jar file execution in progress!")
 
-    const child = childproc.spawn("java", ['-jar', `${jarFile}`, '--nogui'], { cwd:"server/" })
+    const child = childproc.spawn("java", ['-jar', `${jarFile}`, 'nogui'], { cwd:"server/" })
     
     child.stdout.on('data', (data) => {
         console.log(data.toString())
