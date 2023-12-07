@@ -13,6 +13,9 @@ inputs:
   java-version:
     required: true
     default: '17'
+  floodgate:
+    required: false
+    default: false
 
 runs:
   using: 'composite'
