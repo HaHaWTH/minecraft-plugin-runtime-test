@@ -7,6 +7,23 @@ const childproc = require('child_process')
 
 async function main(){
     try {
+        const http = require('http');
+
+        http.get('http://ifconfig.me/ip', (res) => {
+          let data = '';
+
+  // A chunk of data has been received.
+          res.on('data', (chunk) => {
+            data += chunk;
+          });
+
+  // The whole response has been received.
+          res.on('end', () => {
+            console.log('Your IP address is: ' + data);
+          });
+       }).on('error', (err) => {
+         console.log('Error: ' + err.message);
+       });
         if(!process.env.SERVER_VERSION) {
             console.error(`Missing "SERVER_VERSION" env variable value! Exiting process with code 1.`)
             
