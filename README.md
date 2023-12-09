@@ -71,7 +71,7 @@ jobs:
             javaVersion: '20'  
     
     steps:        
-      - uses: FN-FAL113/minecraft-plugin-runtime-test@v1.1.2 # specify action version, use latest as possible
+      - uses: HaHaWTH/minecraft-plugin-runtime-test@paper # specify action version, use latest as possible
         with:
           server-version: ${{ matrix.mcVersion }}
           java-version: ${{ matrix.javaVersion }}
@@ -79,6 +79,4 @@ jobs:
 ```
 
 ### Plugins Included by Default During Runtime
-- Slimefun
-
-Suggestions are open for plugins that depends on other plugins. This will be based off from a resource file soon in order to accomomdate more plugins or so this repo can be forked to support your plugins.
+- floodgate
