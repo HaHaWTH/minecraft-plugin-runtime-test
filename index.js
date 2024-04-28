@@ -79,7 +79,7 @@ function downloadJar(url, dir, jarFile){
             res.on('data', (chunk) => {
                 receivedBytes += chunk.length // patching up every chunks of byte length to check download progress
                 
-                console.log(`Downloading "${jarFile}": ` + (receivedBytes / 1000000).toFixed(2) + "mb / " + (res.headers['content-length'] / 1000000).toFixed(2) + "mb")
+                //console.log(`Downloading "${jarFile}": ` + (receivedBytes / 1000000).toFixed(2) + "mb / " + (res.headers['content-length'] / 1000000).toFixed(2) + "mb")
             })
 
             res.on('end', () => {
